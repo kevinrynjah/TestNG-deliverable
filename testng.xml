@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="2">
+
+	 <test name="Calculator1">
+		  <parameter name="num2" value="3"></parameter> 
+  		<classes>
+  			<class name="com.picnic.testng.Calculator" />
+  		</classes>
+	 </test>
+	 
+	 <test name="Calculator2">
+		  <parameter name="num2" value="2"></parameter> 
+  		   <groups>
+		 <define name="all">
+		 		<include name = "parameter"/>
+		 		<include name = "Addition"/>
+				<include name = "Subtraction"/>
+				<include name = "Multiplication"/>
+				<include name = "Div_integer"/>
+				<include name = "Div_real"/>
+				<include name = "Exponent"/>
+				<include name = "Modulus"/>
+				<include name = "Inverse"/>
+				<include name = "Negate"/>
+		 </define>
+		 <define name="some">
+		 		<include name = "parameter"/>
+		 		<include name = "Addition"/>
+				<include name = "Subtraction"/>
+				<include name = "Multiplication"/>
+				<include name = "Div_integer"/>
+		 </define>
+			<run>
+				<include name="some"/>
+			</run>
+		</groups>
+  		<classes>
+  			<class name="com.picnic.testng.Calculator2" />
+  		</classes>
+	 </test> 
+
+</suite> 
